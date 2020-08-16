@@ -30,14 +30,14 @@ const ContactPage = () => {
             </ContactWrapper>
             <hr/>
             <ContactFormWrapper>
-                    <h3>Get in touch</h3>
-                    <form action="https://formspree.io/mknqelye" method="POST">
-                        <input type="text" name="name" id="name" placeholder="Your Name"/>
-                        <input type="email" name="email" id="email" placeholder="E-mail"/>
-                        <input type="text" name="phone" id="phone" placeholder="Phone"/>
-                        <textarea placeholder="Message" rows="4"></textarea>
-                        <button type="submit" className='btn-success'>Send</button>
-                    </form>
+                <h3>Get in touch</h3>
+                <form action="https://formspree.io/mknqelye" method="POST">
+                    <input type="text" name="name" id="name" placeholder="Your Name"/>
+                    <input type="email" name="email" id="email" placeholder="E-mail"/>
+                    <input type="text" name="phone" id="phone" placeholder="Phone"/>
+                    <textarea placeholder="Message" rows="4"></textarea>
+                    <button type="submit" className='btn-success'>Send</button>
+                </form>
             </ContactFormWrapper>
         </>
     )
@@ -46,6 +46,7 @@ const ContactPage = () => {
 const ContactWrapper = styled.div`
     text-align: center;
     padding: 3rem;
+    background: #ddd;
     .contacts {
         display: grid;
         margin: 0 auto;
@@ -65,8 +66,10 @@ const ContactWrapper = styled.div`
         color: black;
     }
     .desc a:hover {
+        transition: var(--mainTransition);
         text-decoration: none;
         color: green;
+        /* font-weight: bold; */
     }
     .desc p{
         color: grey;

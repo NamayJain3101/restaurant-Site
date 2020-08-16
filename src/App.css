@@ -1,18 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root {
+    --mainTransition: all 0.3s linear;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-}
-
-:root {
-    --mainTransition: all 0.3s linear;
+    transition: var(--mainTransition);
 }
 
 body {
     padding-top: 100px;
     font-family: 'PT Serif', serif;
+    width: 100%;
+}
+
+h2 {
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+p {
+    letter-spacing: 1px;
+    line-height: 2;
 }
 
 hr {

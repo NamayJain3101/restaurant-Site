@@ -29,7 +29,7 @@ const Footer = () => {
 }
 
 const FooterWrapper = styled.footer`
-    width: 100vw !important;
+    width: 100% !important;
     background: black;
     padding: 3rem 3rem;
     display: flex;

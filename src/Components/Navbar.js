@@ -2,7 +2,7 @@ import React from 'react'
 import { RestaurantConsumer } from '../Context/Context'
 import Logo from '../Images/logo-default.png'
 import styled from 'styled-components';
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaXing } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 import {NavLinks} from '../Context/NavLinks'
 
@@ -22,7 +22,7 @@ const Navbar = () => {
                                         </Link>
                                     </div>
                                     <button type="button" className='nav-button' onClick={toggleNavBar}>
-                                        <FaBars className='nav-icon' />
+                                        {!navBarOpen ? <FaBars className='nav-icon' /> : <FaXing className="nav-icon" /> }
                                     </button>
                                 </div>
                                 <ul className={navBarOpen ? "nav-links show-nav" : "nav-links"}>
