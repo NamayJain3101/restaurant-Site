@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
+import { RestaurantProvider } from './Context/Context';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RestaurantProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </RestaurantProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
