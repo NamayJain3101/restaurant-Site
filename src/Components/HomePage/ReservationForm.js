@@ -36,11 +36,11 @@ const ReservationWrapper = styled.div`
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
     form input{
-        padding: 1rem 6px;
+        padding: 1rem;
         outline: none;
         border: none;
-        /* border-bottom: 1px solid black; */
-        /* border-radius: 5px; */
+        border: 1px solid black;
+        border-radius: 5px;
         text-align: left;
         text-transform: capitalize;
         letter-spacing: 2px;

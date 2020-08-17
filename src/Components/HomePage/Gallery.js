@@ -1,37 +1,51 @@
 import React from 'react'
 import styled from 'styled-components'
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 import gallery1 from '../../Images/gallery-masonry-1.jpg'
 import gallery2 from '../../Images/gallery-masonry-2.jpg'
 import gallery3 from '../../Images/gallery-masonry-3.jpg'
 import gallery4 from '../../Images/gallery-masonry-4.jpg'
 import gallery5 from '../../Images/gallery-masonry-5.jpg'
+import { RestaurantConsumer } from '../../Context/Context';
+
+const images = [
+    gallery1, gallery2, gallery3, gallery4, gallery5
+]
 
 const Gallery = () => {
     return (
-        <GalleryWrapper>
-            <div className='row m-0 py-5'>
-                <div className='gallery col-12 col-sm-6 p-0'>
-                    <img src={gallery1} className='img-fluid w-100' alt="gallery1" />
-                    <div className="d-block">Zoom</div>
-                </div>
-                <div className='gallery col-12 col-sm-6 p-0'>
-                    <img src={gallery2} className='img-fluid w-100' alt="gallery2" />
-                    <div className="d-block">Zoom</div>
-                </div>
-                <div className='gallery col-12 col-sm-12 p-0'>
-                    <img src={gallery3} className='img-fluid w-100' alt="gallery1" />
-                    <div className="d-block">Zoom</div>
-                </div>
-                <div className='gallery col-12 col-sm-6 p-0'>
-                    <img src={gallery4} className='img-fluid w-100' alt="gallery1" />
-                    <div className="d-block">Zoom</div>
-                </div>
-                <div className='gallery col-12 col-sm-6 p-0'>
-                    <img src={gallery5} className='img-fluid w-100' alt="gallery1" />
-                    <div className="d-block">Zoom</div>
-                </div>
-            </div>
-        </GalleryWrapper>
+        <RestaurantConsumer>
+            {value => {
+                const {lightboxOpen, lightboxIndex, openLightbox, closeLightbox, changeLightboxIndex} = value;
+                return(
+                    <GalleryWrapper>
+                        <div className='row m-0 py-5'>
+                            {
+                                images.map((image, index) => {
+                                    return(
+                                        <div key={index} className={index !== 2 ? 'gallery col-12 col-sm-6 p-0' : 'gallery col-12 col-sm-12 p-0'}>
+                                            <img src={image} className='img-fluid w-100' alt="gallery1" />
+                                            <div className="d-block" onClick={() => openLightbox(index)}>Zoom</div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        {lightboxOpen && (
+                            <Lightbox
+                                mainSrc={images[lightboxIndex]}
+                                nextSrc={images[(lightboxIndex + 1) % images.length]}
+                                prevSrc={images[(lightboxIndex + images.length - 1) % images.length]}
+                                onCloseRequest={closeLightbox}
+                                onMovePrevRequest={() => changeLightboxIndex((lightboxIndex + images.length - 1) % images.length)}
+                                onMoveNextRequest={() => changeLightboxIndex((lightboxIndex + 1) % images.length)}
+                            />
+                        )}
+                    </GalleryWrapper>
+                )
+            }}
+        </RestaurantConsumer>
     )
 }
 

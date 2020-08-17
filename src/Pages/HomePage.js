@@ -11,7 +11,7 @@ import News from '../Components/HomePage/News'
 const HomePage = () => {
     return (
         <>
-            <Hero img={MainBcg} max title="welcome" subtitle="Our restaurant offers full-service dining with breathtaking views seen from our indoor covered patio and our outdoor sundeck." />
+            <Hero img={MainBcg} max="true" title="welcome" subtitle="Our restaurant offers full-service dining with breathtaking views seen from our indoor covered patio and our outdoor sundeck." />
             <ReservationForm />
             <div className='container mt-n5 mb-5 px-5 px-lg-0 mx-auto row'>
                 <div className="jumbotron text-center mx-auto px-3 m-0 p-1 w-50 h-auto d-md-block col-12 col-lg-6" style={{background: `url(${aboutBcg}) center/cover no-repeat`}}>

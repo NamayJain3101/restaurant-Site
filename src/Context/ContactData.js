@@ -1,5 +1,4 @@
 import React from 'react';
-import {} from 'react-icons'
 import { FiPhoneCall, FiMap, FiSend } from 'react-icons/fi';
 
 export const ContactData = [
