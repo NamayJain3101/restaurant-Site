@@ -41,6 +41,7 @@ const ReservationWrapper = styled.div`
         border: none;
         border: 1px solid black;
         border-radius: 5px;
+        width: 100%;
         text-align: left;
         text-transform: capitalize;
         letter-spacing: 2px;
