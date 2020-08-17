@@ -12,11 +12,16 @@ class RestaurantProvider extends Component {
         this.setState({ navBarOpen: !this.state.navBarOpen });
     }
 
+    closeNavbar = () => {
+        this.setState({ navBarOpen: false });
+    }
+
     render() {
         return (
             <RestaurantContext.Provider value={{
                 ...this.state,
-                toggleNavBar: this.toggleNavBar
+                toggleNavBar: this.toggleNavBar,
+                closeNavbar: this.closeNavbar
             }}>
                 {this.props.children}
             </RestaurantContext.Provider>

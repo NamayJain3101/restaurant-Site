@@ -20,9 +20,9 @@ const HeroWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: ${props => props.max ? '100vh' : '60vh' };
+    min-height: ${props => props.max ? '60vh' : '40vh' };
     color: white;
-    padding: 2rem 6rem;
+    padding: ${props => props.max ? '2rem 6rem 4rem 6rem' : '2rem 6rem' };
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${props => props.img}) center/cover no-repeat;
     .title {
         padding-top: 2rem;
@@ -43,8 +43,8 @@ const HeroWrapper = styled.div`
         background: lime;
         margin: 2rem auto 3rem auto;
     }
-    @media(max-width: 812px) {
-        padding: 2rem;
+    @media(max-width: 768px) {
+        padding: ${props => props.max ? '2rem 2rem 4rem 2rem' : '2rem' };
         .title {
             font-size: 2.5rem;
         }

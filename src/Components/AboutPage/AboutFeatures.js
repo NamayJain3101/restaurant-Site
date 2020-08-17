@@ -31,7 +31,7 @@ const AboutFeatureWrapper = styled.div`
     background: #eee;
     padding: 3rem;
     margin: 0;
-    @media(max-width: 812px) {
+    @media(max-width: 768px) {
         padding: 3rem 1rem;
     }
     h2 {

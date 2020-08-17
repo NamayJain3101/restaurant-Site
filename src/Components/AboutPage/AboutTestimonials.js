@@ -43,7 +43,7 @@ const AboutTestimonialsWrapper = styled.div`
         margin: 0 auto;
         text-align: center;
     }
-    @media(max-width: 812px) {
+    @media(max-width: 768px) {
         .carousel-item {
             padding: 2rem 3rem 4rem 3rem;
             width: 100%;

@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <RestaurantConsumer>
             {value => {
-                const {toggleNavBar, navBarOpen} = value;
+                const {toggleNavBar, navBarOpen, closeNavbar} = value;
                 return(
                     <NavWrapper>
                         <nav className='navbar'>
@@ -30,7 +30,7 @@ const Navbar = () => {
                                         NavLinks.map(navLink => {
                                             return(
                                                 <li key={navLink.id}>
-                                                    <Link to={navLink.path}>{navLink.text}</Link>
+                                                    <Link to={navLink.path} onClick={closeNavbar}>{navLink.text}</Link>
                                                 </li>
                                             )
                                         })
@@ -69,6 +69,10 @@ const NavWrapper = styled.nav`
         border: none;
         font-size: 2rem;
     }
+    .nav-button:focus{
+        transform: rotateZ(360deg);
+        transition: var(--mainTransition);
+    }
     .nav-links {
         height: 0;
         overflow: hidden;
@@ -94,7 +98,7 @@ const NavWrapper = styled.nav`
     .show-nav{
         height: 210px;
     }
-    @media screen and (min-width: 820px) {
+    @media screen and (min-width: 768px) {
         ul{
             margin: 1rem 0;
         }
