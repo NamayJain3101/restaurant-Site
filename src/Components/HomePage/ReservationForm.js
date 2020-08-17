@@ -8,7 +8,7 @@ const ReservationForm = () => {
                 <form>
                     <input type="text" name="name" id="name" placeholder="Your Name" required/>
                     <input type="phone" name="phone" id="phone" placeholder="Phone Number" required/>
-                    <input type="date" name="date" id="date"/>
+                    <input type="date" name="date" id="date" placeholder="DD/MM/YYYY"/>
                     <input type="number" name="people" id="people" placeholder="Number of People" required/>
                     <button type="submit" className='btn-dark'>check availability</button>
                 </form>
@@ -41,6 +41,7 @@ const ReservationWrapper = styled.div`
         border: none;
         border: 1px solid black;
         border-radius: 5px;
+        background: white;
         width: 100%;
         text-align: left;
         text-transform: capitalize;
