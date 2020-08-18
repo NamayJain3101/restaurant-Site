@@ -28,11 +28,6 @@ p {
     line-height: 2;
 }
 
-hr {
-    border-top: 1px solid green;
-    margin: 0;
-}
-
 .main-link {
     font-size: 1.5rem;
     background: rgba(255, 255, 0, 0.5);
@@ -43,30 +38,10 @@ hr {
     color: black;
     font-weight: bold;
     outline-offset: 5px;
-    margin: 2rem 0 !important;
+    margin: 2rem auto !important;
 }
 
 .main-link:hover {
     text-decoration: none;
     background: yellow;
-}
-
-.link {
-    font-size: 1.5rem;
-    background: black;
-    padding: 0.5rem 2rem;
-    text-transform: capitalize;
-    letter-spacing: 5px;
-    outline: 2px solid yellow;
-    color: lime;
-    font-weight: bold;
-    padding: 1rem 2rem;
-    outline-offset: 5px;
-    margin: 4rem 0 !important;
-}
-
-.link:hover {
-    text-decoration: none;
-    background: green;
-    color: yellow;
 }

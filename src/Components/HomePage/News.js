@@ -43,6 +43,7 @@ const News = () => {
 }
 
 const NewsWrapper = styled.div`
+    background: #eee;
     padding: 2rem;
     h1 {
         font-size: 3rem;

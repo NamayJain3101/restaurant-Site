@@ -28,7 +28,6 @@ const ContactPage = () => {
                     }
                 </div>
             </ContactWrapper>
-            <hr/>
             <ContactFormWrapper>
                 <h3>Get in touch</h3>
                 <form action="https://formspree.io/mknqelye" method="POST">
@@ -46,7 +45,7 @@ const ContactPage = () => {
 const ContactWrapper = styled.div`
     text-align: center;
     padding: 3rem;
-    background: #ddd;
+    background: #eee;
     .contacts {
         display: grid;
         margin: 0 auto;

@@ -6,10 +6,12 @@ const FoodItem = ({food}) => {
         <FeaturedFoodWrapper>
             <div className="p-3 mx-auto text-center">
                 <img className='img-fluid' src={food.image} alt="FeaturedFood" />
-                <h3>{food.foodName}</h3>
-                <h6>
-                    {food.price}Rs
-                </h6>
+                <div className="row">
+                    <span className="title col-8">{food.foodName}</span>
+                    <span className="price col-4">
+                        {food.price}Rs
+                    </span>
+                </div>
             </div>
         </FeaturedFoodWrapper>
     )
@@ -21,21 +23,19 @@ const FeaturedFoodWrapper = styled.div`
         width: 100%;
         height: auto;
     }
-    h3 {
+    .title {
         font-size: 1.3rem;
         margin: 1rem auto;
         line-height: 1.5;
-        height: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        text-align: left;
     }
-    h6 {
+    .price {
         color: green;
         font-weight: bold;
+        margin: 1rem auto;
         font-size: 1.2em;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
     }
 `

@@ -22,7 +22,9 @@ const FeaturedItems = () => {
                     }}
                 </RestaurantConsumer>
             </FeaturedWrapper>
-            <Link to='/menu' className='link'>View Complete Menu</Link>
+            <div className="d-flex justify-content-center mb-4">
+                <Link to='/menu' className='main-link' style={{background: 'black', color: 'lime', outlineColor: 'black'}}>View Complete Menu</Link>
+            </div>
         </>
     )
 }
