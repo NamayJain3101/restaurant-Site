@@ -31,7 +31,6 @@ class RestaurantProvider extends Component {
             const food = {id, ...item.fields, image};
             return food;
         })
-        console.log(storedItems)
         let featuredItems = storedItems.filter(item => item.featured === true);
         this.setState({  
             storedItems,
