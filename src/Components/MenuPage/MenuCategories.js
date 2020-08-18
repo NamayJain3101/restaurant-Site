@@ -32,7 +32,7 @@ const CategoryWrapper = styled.nav`
         border-top: 2px solid yellow;
         display: grid;
         grid-auto-flow: column;
-        grid-template-columns: repeat(auto-fit, minmax(10%, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
         background: black;
         color: lime;
         overflow: auto;
@@ -63,6 +63,11 @@ const CategoryWrapper = styled.nav`
     div.active {
         border-bottom: 3px solid lime;
         font-weight: bold;
+    }
+    @media(max-width: 767px) {
+        div {
+            padding: 1rem 0;
+        }
     }
 `
 
