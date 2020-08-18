@@ -22,7 +22,7 @@ const HeroWrapper = styled.div`
     justify-content: center;
     min-height: ${props => props.max ? '60vh' : '40vh' };
     color: white;
-    padding: ${props => props.max ? '2rem 6rem 4rem 6rem' : '2rem 6rem' };
+    padding: 2rem 6rem 4rem 6rem;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${props => props.img}) center/cover no-repeat;
     .title {
         padding-top: 2rem;

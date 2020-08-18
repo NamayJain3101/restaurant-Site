@@ -13,7 +13,9 @@ class RestaurantProvider extends Component {
         storedItems: [],
         filteredItems: [],
         featuredItems: [],
-        loading: true
+        loading: true,
+
+        category: 'all'
     }
 
     componentDidMount() {
@@ -60,6 +62,21 @@ class RestaurantProvider extends Component {
         this.setState({ lightboxIndex: index })
     }
 
+    setCategory = (category) => {
+        this.setState({ 
+            category: category 
+        }, () => this.filterItem())
+    }
+
+    filterItem = () => {
+        const {storedItems, category} = this.state;
+        let tempItems = [...storedItems];
+        if(category !== 'all') {
+            tempItems = tempItems.filter(item => item.category === category)
+        }
+        this.setState({ filteredItems: tempItems })
+    }
+
     render() {
         return (
             <RestaurantContext.Provider value={{
@@ -68,7 +85,8 @@ class RestaurantProvider extends Component {
                 closeNavbar: this.closeNavbar,
                 openLightbox: this.openLightbox,
                 closeLightbox: this.closeLightbox,
-                changeLightboxIndex: this.changeLightboxIndex
+                changeLightboxIndex: this.changeLightboxIndex,
+                setCategory: this.setCategory
             }}>
                 {this.props.children}
             </RestaurantContext.Provider>

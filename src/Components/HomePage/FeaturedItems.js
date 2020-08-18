@@ -22,8 +22,8 @@ const FeaturedItems = () => {
                     }}
                 </RestaurantConsumer>
             </FeaturedWrapper>
-            <div className="d-flex justify-content-center mb-4">
-                <Link to='/menu' className='main-link' style={{background: 'black', color: 'lime', outlineColor: 'black'}}>View Complete Menu</Link>
+            <div className="d-flex justify-content-center mb-5 mx-auto w-75 text-center">
+                <Link to='/menu' className='main-link btn-dark' style={{background: 'black', color: 'lime', outlineColor: 'black', textTransform: 'uppercase'}}>View Menu</Link>
             </div>
         </>
     )
@@ -33,6 +33,9 @@ const FeaturedWrapper = styled.div`
     margin: 0 3rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    @media(max-width: 767px){
+        margin: 0 2rem;
+    }
 `
 
 export default FeaturedItems
