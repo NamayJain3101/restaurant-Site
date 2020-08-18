@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {client} from './Contentful'
 
 const RestaurantContext = React.createContext();
 
@@ -7,7 +8,37 @@ class RestaurantProvider extends Component {
     state = {
         navBarOpen: false,
         lightboxOpen: false,
-        lightboxIndex: 0
+        lightboxIndex: 0,
+
+        storedItems: [],
+        filteredItems: [],
+        featuredItems: [],
+        loading: true
+    }
+
+    componentDidMount() {
+        client.getEntries({
+            content_type: 'pestoRestaurant'
+        })
+        .then(response => this.getData(response.items))
+        .catch(error => console.log(error));
+    }
+
+    getData = (foodItems) => {
+        let storedItems = foodItems.map(item => {
+            const id = item.sys.id;
+            const image = item.fields.foodImage.fields.file.url;
+            const food = {id, ...item.fields, image};
+            return food;
+        })
+        console.log(storedItems)
+        let featuredItems = storedItems.filter(item => item.featured === true);
+        this.setState({  
+            storedItems,
+            featuredItems,
+            filteredItems: storedItems,
+            loading: false
+        })
     }
 
     toggleNavBar = () => {

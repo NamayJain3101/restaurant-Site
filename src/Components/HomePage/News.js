@@ -48,7 +48,7 @@ const NewsWrapper = styled.div`
         font-size: 3rem;
     }
     .owl-theme {
-        padding: 0 2rem;
+        padding: 0;
         text-align: justify;
     }
     .item {

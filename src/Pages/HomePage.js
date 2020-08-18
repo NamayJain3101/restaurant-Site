@@ -7,6 +7,7 @@ import chefImg from '../Images/chef.png'
 import chefSignImg from '../Images/chefSign.png'
 import Gallery from '../Components/HomePage/Gallery'
 import News from '../Components/HomePage/News'
+import FeaturedItems from '../Components/HomePage/FeaturedItems'
 
 const HomePage = () => {
     return (
@@ -25,6 +26,7 @@ const HomePage = () => {
                 </div>
             </div>
             <Gallery />
+            <FeaturedItems />
             <News />
         </>
     )

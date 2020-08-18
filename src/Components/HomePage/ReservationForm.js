@@ -38,6 +38,7 @@ const ReservationWrapper = styled.div`
     form input{
         padding: 1rem;
         outline: none;
+        margin: 0 auto;
         border: none;
         border: 1px solid black;
         border-radius: 5px;

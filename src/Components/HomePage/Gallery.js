@@ -50,6 +50,7 @@ const Gallery = () => {
 }
 
 const GalleryWrapper = styled.div`
+    margin: -3rem 0;
     .gallery {
         position: relative;
     }
