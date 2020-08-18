@@ -17,10 +17,18 @@ const FoodItem = ({food}) => {
 
 const FeaturedFoodWrapper = styled.div`
     letter-spacing: 2px;
+    img{
+        width: 100%;
+        height: auto;
+    }
     h3 {
         font-size: 1.3rem;
         margin: 1rem auto;
         line-height: 1.5;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     }
     h6 {
         color: green;

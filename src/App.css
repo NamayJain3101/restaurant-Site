@@ -50,3 +50,23 @@ hr {
     text-decoration: none;
     background: yellow;
 }
+
+.link {
+    font-size: 1.5rem;
+    background: black;
+    padding: 0.5rem 2rem;
+    text-transform: capitalize;
+    letter-spacing: 5px;
+    outline: 2px solid yellow;
+    color: lime;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    outline-offset: 5px;
+    margin: 4rem 0 !important;
+}
+
+.link:hover {
+    text-decoration: none;
+    background: green;
+    color: yellow;
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { RestaurantConsumer } from '../../Context/Context'
 import FoodItem from '../FoodItem';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const FeaturedItems = () => {
     return (
@@ -21,6 +22,7 @@ const FeaturedItems = () => {
                     }}
                 </RestaurantConsumer>
             </FeaturedWrapper>
+            <Link to='/menu' className='link'>View Complete Menu</Link>
         </>
     )
 }
