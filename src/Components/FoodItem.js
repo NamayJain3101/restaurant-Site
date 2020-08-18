@@ -19,12 +19,14 @@ const FoodItem = ({food}) => {
 
 const FeaturedFoodWrapper = styled.div`
     letter-spacing: 2px;
+    padding: 2rem;
     img{
         width: 100%;
         height: auto;
+        border-radius: 50%;
     }
     .title {
-        font-size: 1.3rem;
+        font-size: 1rem;
         margin: 1rem auto;
         line-height: 1.5;
         text-align: left;
@@ -33,7 +35,7 @@ const FeaturedFoodWrapper = styled.div`
         color: green;
         font-weight: bold;
         margin: 1rem auto;
-        font-size: 1.2em;
+        font-size: 1em;
         display: flex;
         align-items: flex-end;
         justify-content: center;

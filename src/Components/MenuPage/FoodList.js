@@ -23,12 +23,14 @@ const FoodList = () => {
 }
 
 const FoodListWrapper = styled.div`
-    margin: 0 3rem;
-    padding: 2rem 0;
+    margin: 0 5rem;
+    padding: 4rem 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 2rem;
     @media(max-width: 767px){
         margin: 0 2rem;
+        padding: 3rem 0;
     }
 `
 
