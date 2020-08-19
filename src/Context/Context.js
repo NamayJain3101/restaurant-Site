@@ -15,7 +15,13 @@ class RestaurantProvider extends Component {
         featuredItems: [],
         loading: true,
 
-        category: 'all'
+        category: 'all',
+
+        cart: [],
+        cartItems: 0,
+        cartSubTotal: 0,
+        cartTax: 0,
+        cartTotal: 0
     }
 
     componentDidMount() {
@@ -38,8 +44,10 @@ class RestaurantProvider extends Component {
             storedItems,
             featuredItems,
             filteredItems: storedItems,
-            loading: false
-        })
+            loading: false,
+
+            cart: this.getStorageCart()
+        }, () => this.addTotals())
     }
 
     toggleNavBar = () => {
@@ -77,6 +85,129 @@ class RestaurantProvider extends Component {
         this.setState({ filteredItems: tempItems })
     }
 
+    getStorageCart = () => {
+        return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [] ;
+    }
+
+    syncStorage = () => {
+        localStorage.setItem('cart', JSON.stringify(this.state.cart));
+    };
+
+    getTotals = () => {
+        let subTotal = 0;
+        let cartItems = 0;
+        this.state.cart.forEach(item => {
+            subTotal += item.total;
+            cartItems += item.count;
+        });
+
+        subTotal = parseFloat(subTotal.toFixed(2));
+        let tax = subTotal * 0.05;
+        tax = parseFloat(tax.toFixed(2));
+        let total = subTotal + tax;
+        total = parseFloat(total.toFixed(2));
+        return {
+            cartItems,
+            subTotal,
+            tax,
+            total
+        };
+    }
+
+    addTotals = () => {
+        const totals = this.getTotals();
+        this.setState({
+            cartItems: totals.cartItems,
+            cartSubTotal: totals.subTotal,
+            cartTax: totals.tax,
+            cartTotal: totals.total
+        });
+    };
+
+    addToCart = (id) => {
+        let tempCart = [...this.state.cart];
+        let tempFood = [...this.state.storedItems];
+        console.log(tempFood)
+        let tempItem = tempCart.find(item => item.id === id);
+        if(!tempItem) {
+            tempItem = tempFood.find(item => item.id === id);
+            let total = tempItem.price;
+            let cartItem = {...tempItem, count: 1, total};
+            tempCart = [...tempCart, cartItem];
+        }
+        else {
+            tempItem.count++;
+            tempItem.total = tempItem.price * tempItem.count;
+            tempItem.total = parseFloat(tempItem.total.toFixed(2));
+        }
+        this.setState({
+            cart: tempCart
+        }, () => {
+            this.addTotals();
+            this.syncStorage();
+        })
+    }
+
+    
+    increment = (id) => {
+        let tempCart = [...this.state.cart];
+        const cartItem = tempCart.find(item => item.id === id);
+        cartItem.count++;
+        cartItem.total = cartItem.count * cartItem.price;
+        cartItem.total = parseFloat(cartItem.total.toFixed(2));
+        this.setState(() => {
+            return {
+                cart: [...tempCart]
+            }
+        },
+        () => {
+            this.addTotals();
+            this.syncStorage();
+        });
+    }
+
+    decrement = (id) => {
+        let tempCart = [...this.state.cart];
+        const cartItem = tempCart.find(item => item.id === id);
+        cartItem.count--;
+        if(cartItem.count === 0) {
+            this.removeItem(id);
+        }
+        else{
+            cartItem.total = cartItem.count * cartItem.price;
+            cartItem.total = parseFloat(cartItem.total.toFixed(2));
+            this.setState(() => {
+                return {
+                    cart: [...tempCart]
+                }
+            },
+            () => {
+                this.addTotals();
+                this.syncStorage();
+            });
+        }
+    }
+
+    removeItem = (id) => {
+        let tempCart = [...this.state.cart];
+        tempCart = tempCart.filter(item => item.id !== id);
+        this.setState({
+            cart: [...tempCart]
+        },() => {
+            this.addTotals();
+            this.syncStorage();
+        })
+    }
+
+    clearCart = () => {
+        this.setState({
+            cart: []
+        },() => {
+            this.addTotals();
+            this.syncStorage();
+        })
+    }
+
     render() {
         return (
             <RestaurantContext.Provider value={{
@@ -86,7 +217,12 @@ class RestaurantProvider extends Component {
                 openLightbox: this.openLightbox,
                 closeLightbox: this.closeLightbox,
                 changeLightboxIndex: this.changeLightboxIndex,
-                setCategory: this.setCategory
+                setCategory: this.setCategory,
+                addToCart: this.addToCart,
+                increment: this.increment,
+                decrement: this.decrement,
+                removeItem: this.removeItem,
+                clearCart: this.clearCart
             }}>
                 {this.props.children}
             </RestaurantContext.Provider>

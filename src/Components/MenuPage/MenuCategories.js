@@ -17,7 +17,7 @@ const MenuCategories = () => {
                     <CategoryWrapper>
                         <nav className={""}>
                             {categories.map((item, index) => {
-                                return <div key={index} onClick={() => setCategory(item)} className={category === item ? "active" : ""}>{item}</div>
+                                return <section key={index} onClick={() => setCategory(item)} className={category === item ? "active" : ""}>{item}</section>
                             })}
                         </nav>
                     </CategoryWrapper>
@@ -28,27 +28,33 @@ const MenuCategories = () => {
 }
 
 const CategoryWrapper = styled.nav`
+    position: -webkit-sticky;
+    position: sticky;
+    top: 104px;
+    z-index: 100;
     nav {
         border-top: 2px solid yellow;
         display: grid;
         grid-auto-flow: column;
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
         background: black;
         color: lime;
         overflow: auto;
         z-index: 200;
         top: 115px;
     }
-    div {
+    section {
         text-align: center;
-        text-transform: capitalize;
+        text-transform: uppercase;
         display: flex;
         font-size: 1rem;
+        font-weight: bold;
         align-items: center;
         justify-content: center;
         letter-spacing: 3px;
-        padding: 5px 8px;
+        padding: 10px !important;
         margin: 0;
+        border-right: 1px solid yellow;
         border-bottom: 3px solid transparent;
         cursor: pointer;
     }
@@ -56,17 +62,26 @@ const CategoryWrapper = styled.nav`
         position: fixed;
         top: 115px;
     }
-    div:hover {
+    section:hover {
         background: lime;
         color: black;
     }
-    div.active {
+    section.active {
         border-bottom: 3px solid lime;
-        font-weight: bold;
     }
     @media(max-width: 767px) {
-        div {
-            padding: 1rem 0;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 115px;
+        z-index: 100;
+        nav {
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+        }
+        section {
+            padding: 10px 5px !important;
+            font-weight: normal;
         }
     }
 `

@@ -49,6 +49,13 @@ const NewsWrapper = styled.div`
         padding: 0;
         text-align: justify;
     }
+    .owl-theme .owl-dots .owl-dot span {
+        background: green;
+    }
+    .owl-theme .owl-dots .owl-dot.active span, 
+    .owl-theme .owl-dots .owl-dot:hover span {
+        background: lime;
+    }
     .item {
         margin: 0 1.5rem;
     }

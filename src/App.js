@@ -9,6 +9,7 @@ import ContactPage from './Pages/ContactPage';
 import AboutPage from './Pages/AboutPage';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import CartPage from './Pages/CartPage';
 
 class App extends Component {
     render() {
@@ -20,6 +21,7 @@ class App extends Component {
 					<Route path='/menu' exact component={MenuPage} />
 					<Route path='/contact-us' exact component={ContactPage} />
 					<Route path='/about' exact component={AboutPage} />
+					<Route path='/cart' exact component={CartPage} />
 					<Route component={DefaultPage} />
 				</Switch>
 				<Footer />
