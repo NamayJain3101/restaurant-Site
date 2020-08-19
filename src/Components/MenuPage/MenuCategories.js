@@ -30,7 +30,7 @@ const MenuCategories = () => {
 const CategoryWrapper = styled.nav`
     position: -webkit-sticky;
     position: sticky;
-    top: 104px;
+    top: 100px;
     z-index: 100;
     nav {
         border-top: 2px solid yellow;
@@ -41,7 +41,6 @@ const CategoryWrapper = styled.nav`
         color: lime;
         overflow: auto;
         z-index: 200;
-        top: 115px;
     }
     section {
         text-align: center;
@@ -72,7 +71,7 @@ const CategoryWrapper = styled.nav`
     @media(max-width: 767px) {
         position: -webkit-sticky;
         position: sticky;
-        top: 115px;
+        top: 110px;
         z-index: 100;
         nav {
             display: flex;
