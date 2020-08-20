@@ -13,7 +13,9 @@ const FoodItem = ({food}) => {
                         <div className="p-3 mx-auto text-center">
                             <div className="img-container">
                                 <img className='img-fluid' src={food.image} alt="FeaturedFood" />
-                                <FaShoppingBasket className='icon' onClick={() => addToCart(food.id)} />
+                                <div>
+                                    <FaShoppingBasket className='icon' onClick={() => addToCart(food.id)} />
+                                </div>
                             </div>
                             <div className="d-flex justify-content-between">
                                 <span className="title">{food.foodName}</span>
@@ -40,20 +42,26 @@ const FeaturedFoodWrapper = styled.div`
     .img-container {
         position: relative;
     }
-    .icon {
+    .img-container div {
         position: absolute;
         transition: var(--mainTransition);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 3rem;
-        color: lime;
+        background: lime;
+        padding: 1rem;
+        border-radius: 50%;
+        cursor: pointer;
         display: none;
+    }
+    .icon {
+        font-size: 3rem;
+        color: black;
     }
     .img-container:hover img {
         filter: grayscale(40%);
     }
-    .img-container:hover .icon {
+    .img-container:hover div {
         display: block;
     }
     .title {

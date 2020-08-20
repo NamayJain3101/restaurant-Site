@@ -1,5 +1,6 @@
 import React from 'react'
 import { RestaurantConsumer } from '../../Context/Context';
+import { Link } from 'react-router-dom';
 
 const CartTotals = () => {
     return (
@@ -12,10 +13,10 @@ const CartTotals = () => {
                             <button className="btn btn-outline-danger text-capitalize mb-5" onClick={clearCart}>Clear Cart</button>
                             <h3>Subtotal: {cartSubTotal}Rs</h3>
                             <h3>Tax: {cartTax}Rs</h3>
-                            <h3>Total: {cartTotal}Rs</h3>
-                            <button className="main-link mt-5" style={{background: 'black', color: "lime", outlineColor: 'black', textTransform: "uppercase"}}>
+                            <h3 className='mb-5'>Total: {cartTotal}Rs</h3>
+                            <Link to='/' onClick={clearCart} className="main-link" style={{background: 'black', color: "lime", outlineColor: 'black', textTransform: "uppercase"}}>
                                 Pay now
-                            </button>
+                            </Link>
                         </div>
                     }}
                 </RestaurantConsumer>

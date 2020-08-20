@@ -1,6 +1,7 @@
 import React from 'react'
 import { RestaurantConsumer } from '../../Context/Context';
 import CartItem from './CartItem';
+import styled from 'styled-components';
 
 const CartList = () => {
     return (
@@ -18,7 +19,7 @@ const CartList = () => {
                                 );
                             }
                             return (
-                                <>
+                                <CartListWrapper>
                                     {cart.map(item => (
                                         <CartItem
                                             key={item.id}
@@ -28,7 +29,7 @@ const CartList = () => {
                                             removeItem={removeItem}
                                         />
                                     ))}
-                                </>
+                                </CartListWrapper>
                             );
                         }}
                     </RestaurantConsumer>
@@ -37,5 +38,12 @@ const CartList = () => {
         </div>
     )
 }
+
+const CartListWrapper = styled.div`
+    display: grid;
+    grid-row-gap: 1rem;
+    grid-column-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+`
 
 export default CartList

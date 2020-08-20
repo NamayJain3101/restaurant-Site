@@ -1,47 +1,62 @@
 import React from 'react'
 import { FaTrash, FaChevronCircleDown, FaChevronCircleUp } from 'react-icons/fa';
+import styled from 'styled-components';
 
 const CartItem = ({cartItem, increment, decrement, removeItem}) => {
     const { id, foodName, price, count, total, image } = cartItem;
     return (
-        <div className="row my-5 mt-lg-0 text-capitalize text-center align-items-center">
-            <div className="col-10 mx-auto col-lg-2 pb-2">
-                <img src={image} width="60" className="img-fluid" alt="product" />
+        <CartItemWrapper>
+            <img src={image} className="img-fluid" alt="product" />
+            <div>{foodName}</div>
+            <div>Price: {price}Rs</div>
+            <div>
+                <FaChevronCircleDown
+                    onClick={() => decrement(id)}
+                    className="cart-icon"
+                />
+                <span className="count">{count}</span>
+                <FaChevronCircleUp
+                    onClick={() => increment(id)}
+                    className="cart-icon"
+                />
             </div>
-            <div className="col-10 mx-auto col-lg-2 pb-2">
-                <span className="d-lg-none">product : </span>
-                {foodName}
-            </div>
-            <div className="col-10 mx-auto col-lg-2 pb-2">
-                <span className="d-lg-none">price : $</span>
-                {price}
-            </div>
-            <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
-                <div className="d-flex justify-content-center">
-                    <div>
-                        <FaChevronCircleDown
-                            onClick={() => decrement(id)}
-                            className="cart-icon text-primary"
-                        />
-                        <span className="text-title text-muted mx-3">{count}</span>
-                        <FaChevronCircleUp
-                            onClick={() => increment(id)}
-                            className="cart-icon text-primary"
-                        />
-                    </div>
-                </div>
-            </div>
-            <div className="col-10 mx-auto col-lg-2 ">
+            <div>
                 <FaTrash
-                    className="text-danger cart-icon"
+                    className="cart-icon text-danger"
                     onClick={() => removeItem(id)}
                 />
             </div>
-            <div className="col-10 mx-auto col-lg-2 mt-2 mt-lg-0">
-                <strong className="text-muted">item total : {total}Rs</strong>
+            <div>
+                <strong>item total : {total}Rs</strong>
             </div>
-        </div>
+        </CartItemWrapper>
     )
 }
+
+const CartItemWrapper = styled.div`
+    padding: 1rem;
+    margin: 0.5rem 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px 20px 4px #ccc;
+    img {
+        width: 100px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+    }
+    div {
+        margin-bottom: 0.5rem
+    }
+    .cart-icon {
+        margin: 0 1rem;
+        color: green;
+        font-size: 1.3rem;
+    }
+`
 
 export default CartItem

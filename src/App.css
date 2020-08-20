@@ -45,3 +45,31 @@ p {
     text-decoration: none;
     background: yellow;
 }
+
+.Toastify__toast-container {
+    width: 450px !important;
+}
+
+@media(max-width: 480px) {
+    .Toastify__toast-container {
+        width: 90vw !important;
+        margin: 0 auto !important;
+        bottom: 1rem !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
+.Toastify__toast--default {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border-radius: 3rem !important;
+    padding: 3px auto !important;
+}
+
+.Toastify__toast-body {
+    margin: 10px !important;
+}
+
+.Toastify__toast {
+    min-height: auto !important;
+}

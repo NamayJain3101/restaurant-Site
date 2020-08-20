@@ -8,7 +8,7 @@ const CartPage = () => {
     return (
         <>
             <Hero img={MainBcg} title="your Cart">
-                <Link to='/' className="main-link">goto Home</Link>
+                <Link to='/menu' className="main-link">goto Menu</Link>
             </Hero>
             <CartSection />
         </>

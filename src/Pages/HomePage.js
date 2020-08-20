@@ -8,6 +8,7 @@ import chefSignImg from '../Images/chefSign.png'
 import Gallery from '../Components/HomePage/Gallery'
 import News from '../Components/HomePage/News'
 import FeaturedItems from '../Components/HomePage/FeaturedItems'
+import { ToastContainer } from 'react-toastify'
 
 const HomePage = () => {
     return (
@@ -27,6 +28,16 @@ const HomePage = () => {
             </div>
             <Gallery />
             <FeaturedItems />
+            <ToastContainer 
+                closeButton={false}
+                position="bottom-center" 
+                autoClose={3000} 
+                closeOnClick={false} 
+                draggable={false}
+                pauseOnHover={false} 
+                bodyClassName="text-center"
+                bodyStyle={{color: 'lime', letterSpacing: '4px', textTransform: 'capitalize', fontSize: '1.2rem'}}
+            />
             <News />
         </>
     )

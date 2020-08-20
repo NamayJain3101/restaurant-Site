@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {client} from './Contentful'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RestaurantContext = React.createContext();
 
@@ -127,7 +129,6 @@ class RestaurantProvider extends Component {
     addToCart = (id) => {
         let tempCart = [...this.state.cart];
         let tempFood = [...this.state.storedItems];
-        console.log(tempFood)
         let tempItem = tempCart.find(item => item.id === id);
         if(!tempItem) {
             tempItem = tempFood.find(item => item.id === id);
@@ -145,6 +146,7 @@ class RestaurantProvider extends Component {
         }, () => {
             this.addTotals();
             this.syncStorage();
+            toast(tempItem.foodName);
         })
     }
 
