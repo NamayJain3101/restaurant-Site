@@ -80,18 +80,18 @@ p {
 }
 
 .slideRight {
-    transform: translateX(150%);
+    transform: translateX(100%);
     animation: slideLeftRight 1s forwards ease-out 0s;
 }
 
 .slideLeft {
-    transform: translateX(-150%);
+    transform: translateX(-100%);
     animation: slideLeftRight 1s forwards ease-out 0s;
 }
 
 .slideTop {
-    transform: translateY(150%);
-    animation: slideUp 1s forwards ease-out 0s;
+    transform: translateY(100%);
+    animation: slideUp 2s forwards ease-out 0s;
 }
 
 .Zoom-Out {
