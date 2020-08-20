@@ -10,7 +10,7 @@ const FoodItem = ({food}) => {
                 const {addToCart} = value;
                 return (
                     <FeaturedFoodWrapper>
-                        <div className="p-3 mx-auto text-center">
+                        <div className="p-3 mx-auto text-center slideTop">
                             <div className="img-container">
                                 <img className='img-fluid' src={food.image} alt="FeaturedFood" />
                                 <div>

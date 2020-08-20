@@ -51,6 +51,10 @@ const Gallery = () => {
 
 const GalleryWrapper = styled.div`
     margin: -3rem 0;
+    .gallery img {
+        padding: 2rem 0;
+        animation: gallery 2s forwards ease-out 0s;
+    }
     .gallery {
         position: relative;
     }

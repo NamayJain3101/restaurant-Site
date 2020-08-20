@@ -7,7 +7,7 @@ import { NewsData } from '../../Context/NewsData';
 
 const News = () => {
     return (
-        <NewsWrapper>
+        <NewsWrapper className="Zoom-Out">
             <h1 className='text-center mx-auto mb-5 text-capitalize font-weight-bold'>Recent news</h1>
             <OwlCarousel className={'owl-theme'}
                 loop={true}

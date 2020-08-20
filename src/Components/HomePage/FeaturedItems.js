@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const FeaturedItems = () => {
     return (
         <>
-            <h1 className='text-center mx-auto my-5 text-capitalize font-weight-bold'>Featured Dishes</h1>
+            <h1 className='slideTop text-center mx-auto my-5 text-capitalize font-weight-bold'>Featured Dishes</h1>
             <FeaturedWrapper>
                 <RestaurantConsumer>
                     {value => {
@@ -22,7 +22,7 @@ const FeaturedItems = () => {
                     }}
                 </RestaurantConsumer>
             </FeaturedWrapper>
-            <div className="d-flex justify-content-center mb-5 mx-auto w-75 text-center">
+            <div className="slideTop d-flex justify-content-center mb-5 mx-auto w-75 text-center">
                 <Link to='/menu' className='main-link btn-dark' style={{background: 'black', color: 'lime', outlineColor: 'black', textTransform: 'uppercase'}}>View Menu</Link>
             </div>
         </>

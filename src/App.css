@@ -73,3 +73,47 @@ p {
 .Toastify__toast {
     min-height: auto !important;
 }
+
+.slideRight {
+    transform: translateX(150%);
+    animation: slideLeftRight 1s forwards ease-out 0s;
+}
+
+.slideLeft {
+    transform: translateX(-150%);
+    animation: slideLeftRight 1s forwards ease-out 0s;
+}
+
+.slideTop {
+    transform: translateY(150%);
+    animation: slideUp 1s forwards ease-out 0s;
+}
+
+.Zoom-Out {
+    transform: scale(1.3);
+    animation: zoomOut 3s forwards ease-out 0s;
+}
+
+@keyframes slideLeftRight {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes gallery {
+    to {
+        padding: 0;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomOut {
+    to {
+        transform: scale(1);
+    }
+}
