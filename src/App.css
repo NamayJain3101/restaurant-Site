@@ -3,6 +3,11 @@
     --mainTransition: all 0.3s linear;
 }
 
+::selection {
+    background: #41A451;
+    color: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
